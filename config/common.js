@@ -1,8 +1,21 @@
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   loaders: {
-    // stylus
+    stylus: {
+      develop: {
+        test: /\.styl/,
+        loader: 'style-loader!css-loader!stylus-loader'
+      },
+      production: {
+        test: /\.styl/,
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: 'style-loader',
+          loader: 'css-loader!stylus-loader'
+        })
+      }
+    }
   },
 
   plugins: {
@@ -15,4 +28,4 @@ module.exports = {
       })
     }
   }
-}
+};
