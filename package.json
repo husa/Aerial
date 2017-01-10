@@ -1,0 +1,30 @@
+{
+  "name": "aerial",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint ./src",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cross-env NODE_ENV=develop webpack-dev-server --hot --inline",
+    "build": "cross-env NODE_ENV=production webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/husa/Aerial.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/husa/Aerial/issues"
+  },
+  "homepage": "https://github.com/husa/Aerial#readme",
+  "devDependencies": {
+    "@eleks/eslint-config-eleks": "^0.2.1",
+    "cross-env": "^3.1.4",
+    "eslint": "^3.13.1",
+    "html-webpack-plugin": "^2.26.0",
+    "webpack": "^2.2.0-rc.3",
+    "webpack-dev-server": "^1.16.2"
+  }
+}
