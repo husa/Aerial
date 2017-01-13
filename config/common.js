@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BabiliPlugin = require('babili-webpack-plugin');
 
 module.exports = {
   loaders: {
@@ -46,6 +47,9 @@ module.exports = {
       production: new HtmlWebpackPlugin({
         template: './src/index.html'
       })
+    },
+    js: {
+      production: new BabiliPlugin()
     },
     css: {
       production: new ExtractTextPlugin('[hash].css')

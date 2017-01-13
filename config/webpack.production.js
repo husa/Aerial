@@ -15,6 +15,7 @@ const config = Object.assign(base, {
   plugins: [
     common.plugins.options.production,
     common.plugins.html.production,
+    common.plugins.js.production,
     common.plugins.css.production
   ]
 });
