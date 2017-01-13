@@ -3,7 +3,6 @@ const AERIAL_URL = 'http://a1.phobos.apple.com/us/r1000/000/Features/atv/AutumnR
 const MAX_CACHE_AGE = 60 * 60 * 1000; // 1 hour
 
 export function fetchAssets () {
-  return Promise.reject();
   const cache = localStorage.getItem('assetsCache');
   const cacheTimestamp = JSON.parse(localStorage.getItem('assetsCacheTimestamp'));
 
