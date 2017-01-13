@@ -1,30 +1,15 @@
 import './main.styl';
 
-import {getAssets} from './api';
+import assets from './assets';
+import Player from './player/player';
+import Clock from './clock/clock';
 
-function flattenAssets (assets) {
-  return assets
-    .map(asset => asset.assets)
-    .reduce((all, current) => all.concat(current));
-}
+const player = new Player();
+const clock = new Clock();
 
-function getRandomAsset (assets) {
-  return assets[Math.floor(Math.random() * assets.length)];
-}
-
-function appendToBody (url) {
-  const video = document.createElement('video');
-  video.src = url;
-  video.controls = false;
-  video.classList.add('video');
-  document.querySelector('#video-container').appendChild(video);
-  video.play();
-}
-
-getAssets().then(entries => {
-  const assets = flattenAssets(entries);
-
-  const asset = getRandomAsset(assets);
-
-  appendToBody(asset.url);
+document.addEventListener('DOMContentLoaded', () => {
+  assets.fetch().then(() => {
+    player.init();
+    clock.init();
+  });
 });
