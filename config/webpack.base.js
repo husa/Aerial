@@ -5,6 +5,6 @@ module.exports = {
 
   output: {
     path: './build',
-    filename: '[name].js'
+    filename: '[hash].js'
   }
 }

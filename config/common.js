@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -15,6 +16,25 @@ module.exports = {
           loader: 'css-loader!stylus-loader'
         })
       }
+    },
+
+    fonts: {
+      develop: {
+        test: /\.woff2/,
+        loader: 'url-loader',
+        query: {
+          limit: 10000,
+          name: '[hash].[ext]'
+        }
+      },
+      production: {
+        test: /\.woff2/,
+        loader: 'url-loader',
+        query: {
+          limit: 10000,
+          name: '[hash].[ext]'
+        }
+      }
     }
   },
 
@@ -25,6 +45,15 @@ module.exports = {
       }),
       production: new HtmlWebpackPlugin({
         template: './src/index.html'
+      })
+    },
+    css: {
+      production: new ExtractTextPlugin('[hash].css')
+    },
+    options: {
+      production: new webpack.LoaderOptionsPlugin({
+        minimize: false,
+        debug: false
       })
     }
   }

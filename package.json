@@ -6,10 +6,12 @@
   "scripts": {
     "lint": "eslint ./src",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "cp src/manifest.json build/",
-    "prestart": "npm run prepare",
+    "clear": "rimraf ./build && mkdirp ./build",
+    "prepare": "cp -r src/manifest.json src/_locales build/",
+    "prestart": "npm run clear && npm run prepare",
     "start": "cross-env NODE_ENV=develop webpack -w",
-    "build": "cross-env NODE_ENV=production webpack -p"
+    "prebuild": "npm run clear && npm run prepare",
+    "build": "cross-env NODE_ENV=production webpack"
   },
   "repository": {
     "type": "git",
@@ -26,11 +28,15 @@
     "cross-env": "^3.1.4",
     "css-loader": "^0.26.1",
     "eslint": "^3.13.1",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "extract-text-webpack-plugin": "^2.0.0-beta.4",
+    "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.26.0",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.5.4",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.4.0",
+    "url-loader": "^0.5.7",
     "webpack": "^2.2.0-rc.3"
   }
 }
