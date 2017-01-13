@@ -4,12 +4,14 @@ import './clock.styl';
 class Clock {
   init () {
     this.el = document.querySelector('#clock');
-    this.timeout = setTimeout(this.update.bind(this), 1000);
+    this.interval = setInterval(this.update.bind(this), 1000);
     this.update();
   }
 
   update () {
-    this.el.innerText = this.getTime();
+    const time = this.getTime();
+    if (this.el.innerText === time) return;
+    this.el.innerText = time;
   }
 
   getTime () {
