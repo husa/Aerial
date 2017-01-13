@@ -7,7 +7,7 @@
     "lint": "eslint ./src",
     "test": "echo \"Error: no test specified\" && exit 1",
     "clear": "rimraf ./build && mkdirp ./build",
-    "prepare": "cp -r src/manifest.json src/_locales build/",
+    "prepare": "cp -r src/manifest.json src/_locales src/img build/",
     "prestart": "npm run clear && npm run prepare",
     "start": "cross-env NODE_ENV=develop webpack -w",
     "prebuild": "npm run clear && npm run prepare",

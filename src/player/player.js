@@ -22,6 +22,7 @@ class Player {
     video.addEventListener('pause', () => {
       this.playNextVideo();
     });
+
     return video;
   }
 

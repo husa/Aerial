@@ -10,9 +10,7 @@ export function fetchAssets () {
 
   return fetch(AERIAL_URL, {
     method: 'GET',
-    mode: 'cors',
     headers: {
-      'Access-Control-Allow-Origin': '*',
       'Content-Type': 'text/plain'
     }
   })
