@@ -42,10 +42,12 @@ module.exports = {
   plugins: {
     html: {
       develop: new HtmlWebpackPlugin({
-        template: './src/index.html'
+        template: './src/index.html',
+        ENV: 'develop'
       }),
       production: new HtmlWebpackPlugin({
-        template: './src/index.html'
+        template: './src/index.html',
+        ENV: 'production'
       })
     },
     js: {

@@ -19,5 +19,9 @@
     </div>
     <div id="clock"></div>
   </div>
+
+  <%if (htmlWebpackPlugin.options.ENV === 'production') { %>
+    <script src="analytics.js" async></script>
+  <% } %>
 </body>
 </html>
