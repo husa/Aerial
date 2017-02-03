@@ -2,7 +2,7 @@
   "manifest_version" : 2,
   "name" : "Aerial",
   "short_name": "Aerial",
-  "version" : "1.0.0",
+  "version" : "1.0.1",
 
   "description" : "__MSG_shortDescription__",
 
